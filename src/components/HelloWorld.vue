@@ -1,41 +1,56 @@
-<script setup lang="ts">
-defineProps<{
-  msg: string
-}>()
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
-    </h3>
+  <div class="container">
+    <img src="../assets/background.JPG" alt="Fondo" class="background">
+    <div class="centered-image-container">
+      <img src="../assets/avatar.jpg" alt="Imagen centrada" class="centered-image">
+    </div>
+    <h2 style="padding: 8px; color: white !important;"><strong>La Metamorfosis del Alma</strong></h2>
   </div>
 </template>
 
-<style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
+<script>
+export default {
+  data() {
+    return {
+      backgroundImage: "../assets/background.JPG",
+      centeredImage: ""
+    };
   }
+};
+</script>
+
+
+<style scoped>
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.centered-image-container {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.centered-image {
+  width: 100%;
+  height: 100%;
+  opacity: 1; /* Opacidad del 40% */
+  border-radius: 50%; /* Borde circular */
 }
 </style>
