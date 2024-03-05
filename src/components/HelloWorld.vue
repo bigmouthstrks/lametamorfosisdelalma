@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="container">
     <img src="../assets/background.JPG" alt="Fondo" class="background">
@@ -9,18 +7,6 @@
     <h2 style="padding: 8px; color: white !important;"><strong>La Metamorfosis del Alma</strong></h2>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      backgroundImage: "../assets/background.JPG",
-      centeredImage: ""
-    };
-  }
-};
-</script>
-
 
 <style scoped>
 .container {
