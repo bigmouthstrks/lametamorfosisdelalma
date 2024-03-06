@@ -1,22 +1,39 @@
 <template>
   <div class="container">
     <img src="https://i.pinimg.com/originals/36/07/c6/3607c693b6c03fa234b7c0700f965526.jpg" alt="Fondo" class="background">
-    <div class="centered-image-container">
-      <img src="https://lametamorfosisdelalma.s3.sa-east-1.amazonaws.com/Captura+de+pantalla+2024-03-06+a+la(s)+10.52.10.png" alt="Imagen centrada" class="centered-image">
-    </div>
-    <hr>
-    <hr>
-    <div class="description-container">
-      <h2><strong>Valentina Moraga Saré</strong></h2>
-      <div>
-        <p>Psicóloga ❋ Autora ❋ Intérprete de Arquetipos</p>
-        <p class="description-small"><small>escribo en <a href="https://www.instagram.com/lametamorfosisdelalma/">@lametamorfosisdelalma</a></small></p>
+    <div class="content">
+      <div class="centered-image-container">
+        <img src="https://lametamorfosisdelalma.s3.sa-east-1.amazonaws.com/Captura+de+pantalla+2024-03-06+a+la(s)+10.52.10.png" alt="Imagen centrada" class="centered-image">
+      </div>
+      <div class="description-container">
+        <h2><strong>Valentina Moraga Saré</strong></h2>
+        <div>
+          <p>Psicóloga ❋ Autora ❋ Intérprete de Arquetipos</p>
+          <p class="description-small"><small>escribo en <a href="https://www.instagram.com/lametamorfosisdelalma/">@lametamorfosisdelalma</a></small></p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .description-container {
+    margin-left: 20px; /* Adjust as needed */
+  }
+}
+
 .description-container {
   padding: 16px;
   color: black;
@@ -24,10 +41,11 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   text-align: center;
   border-radius: 12px;
+  margin-top: 20px; /* Adjust as needed */
 }
 
 .description-small {
-  color:gray;
+  color: gray;
 }
 
 .container {
