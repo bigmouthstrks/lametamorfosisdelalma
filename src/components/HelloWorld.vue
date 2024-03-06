@@ -10,7 +10,7 @@
       <h2><strong>Valentina Moraga Saré</strong></h2>
       <div>
         <p>Psicóloga ❋ Autora ❋ Intérprete de Arquetipos</p>
-        <p class="description-small"><small>escribo en @lametamorfosisdelalma</small></p>
+        <p class="description-small"><small>escribo en <a href="https://www.instagram.com/lametamorfosisdelalma/">@lametamorfosisdelalma</a></small></p>
       </div>
     </div>
   </div>
@@ -46,6 +46,7 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  filter: brightness(90%);
 }
 
 .centered-image-container {
