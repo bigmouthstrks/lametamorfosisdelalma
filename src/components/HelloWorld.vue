@@ -9,8 +9,8 @@
 </template>
 
 <script>
-  import backgroundImageUrl from './../assets/background.jpg';
-  import avatarImageUrl from './../assets/avatar.jpg';
+  import backgroundImageUrl from '../assets/background.jpg';
+  import avatarImageUrl from '../assets/avatar.jpg';
 
   export default {
   data() {
