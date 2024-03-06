@@ -1,12 +1,26 @@
 <template>
   <div class="container">
-    <img src="../assets/background.JPG" alt="Fondo" class="background">
+    <img :src="backgroundImage" alt="Fondo" class="background">
     <div class="centered-image-container">
-      <img src="../assets/avatar.jpg" alt="Imagen centrada" class="centered-image">
+      <img :src="avatarImage" alt="Imagen centrada" class="centered-image">
     </div>
     <h2 style="padding: 8px; color: white !important;"><strong>La Metamorfosis del Alma</strong></h2>
   </div>
 </template>
+
+<script>
+  import backgroundImageUrl from './../assets/background.jpg';
+  import avatarImageUrl from './../assets/avatar.jpg';
+
+  export default {
+  data() {
+    return {
+      backgroundImage: backgroundImageUrl,
+      avatarImage: avatarImageUrl
+    };
+  },
+};
+</script>
 
 <style scoped>
 .container {
