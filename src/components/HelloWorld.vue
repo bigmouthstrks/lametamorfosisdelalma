@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <img src="../assets/background.jpg" alt="Fondo" class="background">
+    <img src="./../assets/background.jpg" alt="Fondo" class="background">
     <div class="centered-image-container">
-      <img src="../assets/avatar.jpg" alt="Imagen centrada" class="centered-image">
+      <img src="./../assets/avatar.jpg" alt="Imagen centrada" class="centered-image">
     </div>
     <h2 style="padding: 8px; color: white !important;"><strong>La Metamorfosis del Alma</strong></h2>
   </div>
