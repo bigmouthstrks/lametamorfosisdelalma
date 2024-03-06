@@ -8,18 +8,20 @@
   </div>
 </template>
 
-<script>
-  import backgroundImageUrl from '../assets/background.jpg';
-  import avatarImageUrl from '../assets/avatar.jpg';
+<script lang="ts">
+import { defineComponent } from 'vue';
+import backgroundImage from '../assets/background.jpg'; // Import the image
+import avatarImage from '../assets/avatar.jpg';
 
-  export default {
+export default defineComponent({
+  name: 'YourComponent',
   data() {
     return {
-      backgroundImage: backgroundImageUrl,
-      avatarImage: avatarImageUrl
+      backgroundImage: backgroundImage,
+      avatarImage: avatarImage,
     };
   },
-};
+});
 </script>
 
 <style scoped>
