@@ -22,7 +22,7 @@ export default defineComponent({
 
 <style>
 .special-title {
-    font-family: 'vinque' !important;
+    font-family: 'Vinque', sans-serif;
     color: #080817;
     margin-top: 28px;
 }
