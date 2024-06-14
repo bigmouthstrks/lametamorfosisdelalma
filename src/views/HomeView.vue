@@ -1,5 +1,5 @@
 <template>
-    <div class="view-container d-flex home-container">
+    <div class="view-container d-flex justify-content-center home-container">
         <div class="row justify-content-center align-items-center">
             <HomeNavItem title="Conoce mis escritos" :image="openBook" destination="writings" />
             <HomeNavItem
