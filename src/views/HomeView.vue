@@ -1,6 +1,6 @@
 <template>
-    <div class="view-container home-container">
-        <div class="d-flex justify-content-center align-items-center">
+    <div class="view-container d-flex home-container">
+        <div class="row justify-content-center align-items-center">
             <HomeNavItem title="Conoce mis escritos" :image="openBook" destination="writings" />
             <HomeNavItem
                 title="Consigue la primera publicación digital"

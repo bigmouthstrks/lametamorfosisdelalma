@@ -25,6 +25,5 @@ export default {
 }
 .navbar {
     height: 50px !important;
-    padding: 8px;
 }
 </style>
