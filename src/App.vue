@@ -19,3 +19,11 @@ export default defineComponent({
     }
 })
 </script>
+
+<style>
+.special-title {
+    font-family: 'vinque' !important;
+    color: #080817;
+    margin-top: 28px;
+}
+</style>
