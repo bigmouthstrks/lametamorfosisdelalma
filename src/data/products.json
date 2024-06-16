@@ -1,0 +1,14 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "La revolución simbólica",
+            "shortDescription": "This is an example description",
+            "longDescription": "This is an example of a long description text for product 'Ebook 1'",
+            "tags": ["ebook","psicología","mujeres"],
+            "priceAsString": "$5.300",
+            "pricesAsInt": 5300,
+            "imageFileName": "ebook1.jpg"
+        }
+    ]
+}

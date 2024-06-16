@@ -50,8 +50,8 @@ a:hover {
 .navigation-img {
     width: 175;
     height: 175px;
-    -webkit-filter: drop-shadow(8px 18px 8px #ffbaba);
-    filter: drop-shadow(8px 12px 2px #fbb1b1);
+    -webkit-filter: drop-shadow(8px 18px 8px #36638a);
+    filter: drop-shadow(8px 12px 2px #36638a);
 }
 
 .navigation-img:hover {
