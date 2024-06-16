@@ -1,7 +1,6 @@
 <template>
-    <Navbar />
+    <Navbar title="Mis escritos" />
     <div class="view-container">
-        <h1 class="text-center special-title">Escritos</h1>
         <br />
         <div class="container text-center">
             <div class="row row-cols-2">
@@ -18,11 +17,13 @@
 import ProductItem from '../components/ProductItem.vue'
 import productsJson from '../data/products.json'
 import { Product } from '../data/Product'
+import Navbar from '../components/Navbar.vue'
 
 export default {
     name: 'WritingsView',
     components: {
-        ProductItem
+        ProductItem,
+        Navbar
     },
     data() {
         const products: Product[] = productsJson.products
@@ -33,9 +34,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.navbar-container {
-    background-color: #832b3b !important;
-    color: #f8c29b;
-}
-</style>
+<style scoped></style>

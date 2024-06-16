@@ -1,5 +1,5 @@
 <template>
-    <Navbar />
+    <Navbar title="La metamorfosis del Alma" />
     <div class="view-container d-flex justify-content-center home-container">
         <div class="row justify-content-center align-items-center">
             <HomeNavItem title="Conoce mis escritos" :image="openBook" destination="writings" />
