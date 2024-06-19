@@ -55,6 +55,6 @@ export default defineComponent({
 .footer-container,
 .view-container {
     background-color: #699ac4 !important;
-    color: #fffdd0;
+    color: #fffdd0 !important;
 }
 </style>

@@ -98,3 +98,16 @@ body {
   color: #080817;
   margin-top: 28px;
 }
+
+.purchase-button {
+    border-radius: 18px;
+    width: 200px;
+    padding: 4px;
+    border: 0px;
+    color: white;
+    background-color: #6696c7 !important;
+}
+
+.purchase-button:hover {
+  background-color: #82a6cb !important;
+}
