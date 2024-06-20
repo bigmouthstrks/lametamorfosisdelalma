@@ -8,14 +8,14 @@
                 <div class="title mt-2">
                     <h2 class="magazine-title text-center">{{ productData.title }}</h2>
                 </div>
-                <div class="image-container col-12 text-center">
+                <!-- <div class="image-container col-12 text-center">
                     <video autoplay muted loop class="h-100 w-100">
                         <source
                             src="../assets/images/video-metamorfosis-compress.mp4"
                             type="video/mp4"
                         />
                     </video>
-                </div>
+                </div> -->
             </div>
             <div class="content-container row mt-3 p-3">
                 <div class="">
