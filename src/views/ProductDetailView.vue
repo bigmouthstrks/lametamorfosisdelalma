@@ -75,10 +75,6 @@ export default {
         productData() {
             const productController: ProductController = new ProductController()
             const product: Product = productController.getProduct(this.id) as Product
-
-            console.log('PRODUCT IN PRODUCT DETAIL VIEW')
-            console.log(product)
-
             return product
         },
         authorData() {
