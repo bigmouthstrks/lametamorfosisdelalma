@@ -33,7 +33,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="container">hola</div> -->
     </div>
     <FooterComponent />
 </template>

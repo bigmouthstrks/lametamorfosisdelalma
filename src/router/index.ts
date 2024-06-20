@@ -5,17 +5,26 @@ import AboutView from '@/views/AboutView.vue';
 import SessionsView from '@/views/SessionsView.vue';
 import WritingsView from '@/views/WritingsView.vue';
 import ReadingClubView from '@/views/ReadingClubView.vue';
+import ProductDetailView from '@/views/ProductDetailView.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', component: HomeView },
   { path: '/about', component: AboutView },
   { path: '/sessions', component: SessionsView },
   { path: '/writings', component: WritingsView },
+  {
+    path: '/product/:id',
+    name: "ProductDetailView", component: ProductDetailView,
+    props: route => ({
+      id: route.params.id,
+      product: route.params.data,
+    })
+  },
   { path: '/reading-club', component: ReadingClubView }
 ];
 
 const router = createRouter({
-  history: createWebHistory("/"),
+  history: createWebHistory(),
   routes,
 });
 

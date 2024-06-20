@@ -3,14 +3,14 @@
         <br />
         <div class="bg-light rounded p-3 shadow">
             <div class="d-flex justify-content-center row">
-                <div class="col-2">
+                <div class="col-12 col-md-2 text-center pb-2 pb-md-0">
                     <img
                         class="author-image rounded-circle"
                         src="../assets/images/profile-img.jpg"
                         alt=""
                     />
                 </div>
-                <div class="col-8">
+                <div class="col-12 col-md-8">
                     <h5>
                         <strong>Acerca de la autora </strong
                         ><span class="author-name">{{ authorData.name }}</span>
