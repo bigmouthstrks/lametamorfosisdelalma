@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row d-flex">
                 <div class="col-12 col-lg-6" v-for="product in products" :key="product.id">
-                    <ProductItem :data="product" />
+                    <ProductItem :product="product" />
                     <br />
                 </div>
             </div>
@@ -29,8 +29,7 @@ export default {
         FooterComponent
     },
     data() {
-        const products = ProductController.getProducts()
-        return { products: products }
+        return { products: ProductController.getProducts() }
     }
 }
 </script>

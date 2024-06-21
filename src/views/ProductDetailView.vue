@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <AboutAuthor :data="authorData" />
+        <AboutAuthor :authorName="authorName" />
     </div>
     <FooterComponent />
 </template>
@@ -52,10 +52,8 @@
 import Navbar from '../components/Navbar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 import AboutAuthor from '../components/AboutAuthor.vue'
-
-import { AuthorController } from '../store/AuthorController'
-import Product from '../store/Product'
 import { ProductController } from '../store/ProductController'
+import Product from '../store/Product'
 
 export default {
     name: 'ProductDetailView',
@@ -72,11 +70,11 @@ export default {
     },
     computed: {
         productData() {
-            return ProductController.getProduct(this.id)
+            return ProductController.getProduct(this.id) as Product
         },
-        authorData() {
-            const product: Product = this.productData
-            return AuthorController.getAuthor(product.author)
+        authorName() {
+            const product = ProductController.getProduct(this.id) as Product
+            return product.author
         }
     }
 }

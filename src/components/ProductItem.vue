@@ -5,8 +5,7 @@
                 <router-link
                     :to="{
                         name: 'ProductDetailView',
-                        params: { id: data.id },
-                        state: { product: data }
+                        params: { id: product.id }
                     }"
                 >
                     <img
@@ -34,13 +33,13 @@
                     </div>
                 </div>
                 <div class="justify-content-center card-body">
-                    <h4 class="magazine-title text-wrap">{{ data.title }}</h4>
+                    <h4 class="magazine-title text-wrap">{{ product.title }}</h4>
                     <p class="card-text text-wrap d-none d-sm-block small-description">
-                        <small class="text-body-secondary">{{ data.shortDescription }}</small>
+                        <small class="text-body-secondary">{{ product.shortDescription }}</small>
                     </p>
                     <div
                         class="badge rounded-pill ml-1 me-1 text-dark d-none d-sm-inline"
-                        v-for="(tag, i) in data.tags"
+                        v-for="(tag, i) in product.tags"
                         :key="i"
                     >
                         <small>{{ tag }}</small>
@@ -48,7 +47,7 @@
                 </div>
                 <div class="justify-content-center">
                     <p class="price">
-                        {{ data.priceAsString }}
+                        {{ product.priceAsString }}
                         <small class="d-none d-sm-inline currency">CLP</small>
                     </p>
                     <button class="purchase-button">Comprar</button>
@@ -63,7 +62,7 @@ import Product from '../store/Product'
 export default {
     name: 'ProductItem',
     props: {
-        data: {
+        product: {
             type: Product,
             required: true
         }

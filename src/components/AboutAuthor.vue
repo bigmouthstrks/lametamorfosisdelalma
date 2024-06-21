@@ -24,18 +24,19 @@
 
 <script lang="ts">
 import Author from '../store/Author'
+import { AuthorController } from '../store/AuthorController'
 
 export default {
     name: 'AboutAuthor',
     props: {
-        data: {
-            type: Author,
+        authorName: {
+            type: String,
             required: true
         }
     },
     computed: {
         authorData() {
-            return this.data
+            return AuthorController.getAuthor(this.authorName) as Author
         }
     }
 }
