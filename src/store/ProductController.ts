@@ -2,7 +2,11 @@ import productsAsJson from './products.json'
 import { type Product } from './Product'
 
 export class ProductController {
-    public getProduct(id: number) {
+    static getProducts() {
+        const products: Product[] = productsAsJson.products
+        return products
+    }
+    static getProduct(id: number) {
         const products: Product[] = productsAsJson.products
         const product = products.find((product) => product.id == id);
         return product

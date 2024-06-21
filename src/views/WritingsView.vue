@@ -17,10 +17,9 @@
 
 <script lang="ts">
 import ProductItem from '../components/ProductItem.vue'
-import productsJson from '../store/products.json'
-import { type Product } from '../store/Product'
 import Navbar from '../components/Navbar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
+import { ProductController } from '../store/ProductController'
 
 export default {
     name: 'WritingsView',
@@ -30,7 +29,7 @@ export default {
         FooterComponent
     },
     data() {
-        const products: Product[] = productsJson.products
+        const products = ProductController.getProducts()
         return { products: products }
     }
 }

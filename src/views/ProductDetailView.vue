@@ -53,7 +53,6 @@ import Navbar from '../components/Navbar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 import AboutAuthor from '../components/AboutAuthor.vue'
 
-import { type Author } from '../store/Author'
 import { AuthorController } from '../store/AuthorController'
 import { type Product } from '../store/Product'
 import { ProductController } from '../store/ProductController'
@@ -73,16 +72,11 @@ export default {
     },
     computed: {
         productData() {
-            const productController: ProductController = new ProductController()
-            return productController.getProduct(this.id)
+            return ProductController.getProduct(this.id)
         },
         authorData() {
-            console.log(this.productData.author)
-
-            const authorController: AuthorController = new AuthorController()
-            if (this.productData.author === undefined) {
-            }
-            return authorController.getAuthor(this.productData.author)
+            const product: Product = this.productData as Product
+            return AuthorController.getAuthor(product.author)
         }
     }
 }
