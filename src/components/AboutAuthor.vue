@@ -23,13 +23,13 @@
 </template>
 
 <script lang="ts">
-import { type Author } from '../store/Author'
+import Author from '../store/Author'
 
 export default {
     name: 'AboutAuthor',
     props: {
         data: {
-            type: Object as () => Author,
+            type: Author,
             required: true
         }
     },

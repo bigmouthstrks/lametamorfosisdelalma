@@ -59,12 +59,12 @@
 </template>
 
 <script lang="ts">
-import { type Product } from '../store/Product'
+import Product from '../store/Product'
 export default {
     name: 'ProductItem',
     props: {
         data: {
-            type: Object as () => Product,
+            type: Product,
             required: true
         }
     }

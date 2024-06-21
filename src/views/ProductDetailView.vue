@@ -54,7 +54,7 @@ import FooterComponent from '../components/FooterComponent.vue'
 import AboutAuthor from '../components/AboutAuthor.vue'
 
 import { AuthorController } from '../store/AuthorController'
-import { type Product } from '../store/Product'
+import Product from '../store/Product'
 import { ProductController } from '../store/ProductController'
 
 export default {
@@ -75,7 +75,7 @@ export default {
             return ProductController.getProduct(this.id)
         },
         authorData() {
-            const product: Product = this.productData as Product
+            const product: Product = this.productData
             return AuthorController.getAuthor(product.author)
         }
     }

@@ -22,9 +22,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HomeNavItem from '@/components/HomeNavItem.vue'
-import Navbar from '@/components/Navbar.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
+import HomeNavItem from '../components/HomeNavItem.vue'
+import Navbar from '../components/Navbar.vue'
+import FooterComponent from '../components/FooterComponent.vue'
 import bookCover from '@/assets/images/book-cover-art-transparent-bg.png'
 import tea from '@/assets/images/tea.png'
 import openBook from '@/assets/images/open-book.png'
