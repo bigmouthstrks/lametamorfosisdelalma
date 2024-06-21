@@ -74,13 +74,15 @@ export default {
     computed: {
         productData() {
             const productController: ProductController = new ProductController()
-            const product: Product = productController.getProduct(this.id) as Product
-            return product
+            return productController.getProduct(this.id)
         },
         authorData() {
+            console.log(this.productData.author)
+
             const authorController: AuthorController = new AuthorController()
-            const author: Author = authorController.getAuthor(this.productData.author) as Author
-            return author
+            if (this.productData.author === undefined) {
+            }
+            return authorController.getAuthor(this.productData.author)
         }
     }
 }
