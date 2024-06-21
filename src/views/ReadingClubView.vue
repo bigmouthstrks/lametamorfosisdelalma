@@ -19,16 +19,18 @@
             </div>
             <div class="about-me vh-100 bg-light">
                 <div class="container mt-5">
-                    <h1 class="text-center">Acerca de mi</h1>
                     <p>
-                        Mi nombre es Valentina Moraga, psicóloga titulada de la Universidad Adolfo
-                        Ibáñez. Cuento con diplomados en temáticas de desarrollo personal y terapia
-                        breve. Apasionada y movilizada por conectar a las personas con la voz de su
-                        corazón, la sensatez y la conciencia. He ofrecido más de 80 publicaciones
-                        escritas sobre filosofía, espiritualidad y psicología. Realizo
-                        acompañamientos psicoterapéuticos y lecturas de energía y arquetipos a
-                        través del tarot. Certificada por la Super Intendencia de Salud de Chile,
-                        número de registro 6894119
+                        Cuando alejarnos de nuestro corazón se prolonga y no encontramos la vuelta a
+                        casa, sentimos los efectos, las mujeres pueden sentirse extremadamente
+                        secas, fatigadas, frágiles, deprimidas o confusas, pueden hacer elecciones
+                        que desgasten su vida, sobreprotección del yo, sentirse insegura, débil o
+                        vacilante, no empeñarse en seguir su propio ritmo, sentirse cohibida, temor
+                        a aventurarse en solitario o rebelarse, ser perfeccionista, sentir
+                        encogimiento, humillación, angustia, ansiedad. Temor a reaccionar con
+                        agresividad cuando no queda nada más que hacer, temor a hablar claro,
+                        mostrarse conciliadora o excesivamente amable, sentirnos como criaturas
+                        disfrazadas, sentirse diferente fuera que dentro, ajustarse a las exigencias
+                        del mundo.
                     </p>
                 </div>
             </div>
