@@ -1,5 +1,5 @@
 import productsAsJson from './products.json'
-import { type Product } from './Product'
+import Product from './Product'
 
 export class ProductController {
     static getProducts() {

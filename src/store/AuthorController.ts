@@ -1,5 +1,5 @@
 import authorsJson from './authors.json'
-import { type Author } from './Author'
+import Author from './Author'
 
 export class AuthorController {
     static getAuthors() {
