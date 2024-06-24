@@ -1,6 +1,6 @@
 <template>
     <Navbar :title="productData.title" />
-    <div class="view-container">
+    <div class="view-container mb-3">
         <br />
         <br />
         <div class="container bg-light shadow rounded">
