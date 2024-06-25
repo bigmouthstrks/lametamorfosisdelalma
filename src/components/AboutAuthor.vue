@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts">
-import Author from '../store/Author'
-import { AuthorController } from '../store/AuthorController'
+import Author from '../store/Author/Author'
+import { AuthorController } from '../store/Author/AuthorController'
 
 export default {
     name: 'AboutAuthor',

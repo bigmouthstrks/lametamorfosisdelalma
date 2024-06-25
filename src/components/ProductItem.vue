@@ -58,7 +58,7 @@
 </template>
 
 <script lang="ts">
-import Product from '../store/Product'
+import Product from '../store/Product/Product'
 export default {
     name: 'ProductItem',
     props: {

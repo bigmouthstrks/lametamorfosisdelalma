@@ -52,8 +52,8 @@
 import Navbar from '../components/Navbar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 import AboutAuthor from '../components/AboutAuthor.vue'
-import { ProductController } from '../store/ProductController'
-import Product from '../store/Product'
+import { ProductController } from '../store/Product/ProductController'
+import Product from '../store/Product/Product'
 
 export default {
     name: 'ProductDetailView',

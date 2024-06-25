@@ -19,7 +19,7 @@
 import ProductItem from '../components/ProductItem.vue'
 import Navbar from '../components/Navbar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
-import { ProductController } from '../store/ProductController'
+import { ProductController } from '../store/Product/ProductController'
 
 export default {
     name: 'WritingsView',
