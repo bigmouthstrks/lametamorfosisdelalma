@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
     { path: '/sessions', component: SessionsView },
     { path: '/escritos', component: WritingsView },
     {
-        path: '/writings/:id',
+        path: '/escritos/:id',
         name: 'ProductDetailView',
         component: ProductDetailView,
         props: (route) => ({ id: route.params.id ?? 1 })
