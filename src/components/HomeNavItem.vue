@@ -11,7 +11,9 @@
         <div v-if="!enabled">
             <router-link to="#">
                 <div class="text-center image-container">
-                    <img :src="image" class="navigation-img" alt="Image" />
+                    <div class="d-flex justify-content-center">
+                        <img :src="image" class="navigation-img" alt="Image" />
+                    </div>
                     <div class="overlay">
                         <p class="text-light overlay-text">Próximamente</p>
                     </div>
@@ -78,13 +80,13 @@ a:hover {
 
 .image-container {
     position: relative;
-    width: 300px; /* Adjust the width as needed */
-    height: 200px; /* Adjust the height as needed */
+    width: 175;
+    height: 175px;
 }
 
 .image-container img {
-    width: 100%;
-    height: 100%;
+    width: 175;
+    height: 175px;
     display: block;
 }
 

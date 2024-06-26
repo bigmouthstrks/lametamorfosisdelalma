@@ -134,3 +134,7 @@ body {
     font-weight: lighter;
     font-size: 16px;
 }
+
+.vinque {
+    font-family: var(--vinque);
+}

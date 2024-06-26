@@ -12,16 +12,16 @@ const routes: Array<RouteRecordRaw> = [
     { path: '/', component: HomeView },
     { path: '/about', component: AboutView },
     { path: '/sessions', component: SessionsView },
-    { path: '/escritos', component: WritingsView },
+    { path: '/writings', name: 'WritingsView', component: WritingsView },
+    { path: '/club-de-lectura', component: ReadingClubView },
+    { path: '/transaction-completed', component: TransactionCompletedView },
+    { path: '/transaction-aborted', component: TransactionAbortedView },
     {
-        path: '/escritos/:id',
+        path: '/writings/:id',
         name: 'ProductDetailView',
         component: ProductDetailView,
         props: (route) => ({ id: route.params.id ?? 1 })
-    },
-    { path: '/club-de-lectura', component: ReadingClubView },
-    { path: '/transaction-completed', component: TransactionCompletedView },
-    { path: '/transaction-aborted', component: TransactionAbortedView }
+    }
 ]
 
 const router = createRouter({

@@ -1,5 +1,5 @@
 <template>
-    <Navbar :title="productData.title" />
+    <Navbar :title="productData.title" :isBackVisible="true" backRoute="writings" />
     <div class="view-container">
         <br />
         <br />

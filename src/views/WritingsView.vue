@@ -1,5 +1,5 @@
 <template>
-    <Navbar title="Mis escritos" />
+    <Navbar title="Mis escritos" backRoute="" :isBackVisible="true" />
     <div class="view-container">
         <br />
         <div class="container">

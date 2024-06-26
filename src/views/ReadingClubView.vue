@@ -1,5 +1,9 @@
 <template>
-    <Navbar title="Club de lectura: Mujeres que corren con los lobos" />
+    <Navbar
+        title="Club de lectura: Mujeres que corren con los lobos"
+        :isBackVisible="true"
+        backRoute="/"
+    />
     <div class="view-container bg-dark">
         <div class="container">
             <div class="header-image-container">
@@ -351,9 +355,6 @@ export default {
 }
 .impact {
     font-family: var(--impact);
-}
-.vinque {
-    font-family: var(--vinque);
 }
 .quote {
     font-style: italic;

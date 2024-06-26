@@ -38,7 +38,8 @@ export class KhipuController {
                 amount: params.amount,
                 currency: params.currency,
                 subject: params.subject,
-                return_url: params.return_url
+                return_url: params.return_url,
+                cancel_url: params.cancel_url
             })
         })
         const response: PaymentResponse = await resp.json()

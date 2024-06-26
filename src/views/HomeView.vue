@@ -1,17 +1,17 @@
 <template>
-    <Navbar title="La metamorfosis del Alma" />
+    <Navbar title="La metamorfosis del Alma" :isBackVisible="false" backRoute="" />
     <div class="view-container d-flex justify-content-center home-container">
         <div class="row justify-content-center align-items-center">
             <HomeNavItem
                 title="Conoce mis escritos"
                 :image="openBook"
-                destination="escritos"
+                destination="writings"
                 :enabled="false"
             />
             <HomeNavItem
                 title="Consigue la primera publicación digital"
                 :image="heart"
-                destination="escritos"
+                destination="writings"
                 :enabled="true"
             />
             <HomeNavItem
@@ -76,8 +76,5 @@ export default defineComponent({
 .view-container {
     background-color: #699ac4 !important;
     color: #fffdd0 !important;
-}
-.vinque {
-    font-family: var(--vinque);
 }
 </style>
