@@ -4,37 +4,37 @@ export class Khipu {
 
     private postMessageSent: boolean = false
     private thirdPartyCookiesEnabled: boolean = false
-    private paymentDescriptor: string
-    private settings: {
-        mountElement: HTMLDivElement | null
-        options: {
-            skipExitPage: boolean
-            modal: boolean
-            style?: {
-                theme?: string
-            }
-        }
-        modalOptions?: {
-            maxWidth: number
-            maxHeight: number
-        }
-        uiType?: string
-        locale?: string
-        sessionCookieName?: string
-        sessionCookieValue?: string
-        skipFP?: boolean
-        closeCallback?: (url?: string) => void
-    }
-    private mountElement: HTMLDivElement
-    private iframeElement: HTMLIFrameElement
-    private successCallback: (response: any) => void
-    private warningCallback: (response: any) => void
-    private failureCallback: (response: any) => void
-    private mustContinueCallback: (response: any) => void
-    private modal: KhipuModal
+    private paymentDescriptor?: string
+    private settings?: Settings
+    private mountElement?: HTMLDivElement | undefined
+    private iframeElement?: HTMLIFrameElement | undefined
+    private successCallback?: (response: any) => void
+    private warningCallback?: (response: any) => void
+    private failureCallback?: (response: any) => void
+    private mustContinueCallback?: (response: any) => void
+    private modal?: KhipuModal
 
-    constructor() {
+    constructor(
+        paymentDescriptor?: string,
+        settings?: Settings,
+        mountElement?: HTMLDivElement,
+        iframeElement?: HTMLIFrameElement,
+        successCallback?: (response: any) => void,
+        warningCallback?: (response: any) => void,
+        failureCallback?: (response: any) => void,
+        mustContinueCallback?: (response: any) => void,
+        modal?: KhipuModal
+    ) {
         this.postMessageListener()
+        this.paymentDescriptor = paymentDescriptor
+        this.settings = settings
+        this.mountElement = mountElement
+        this.iframeElement = iframeElement
+        this.successCallback = successCallback
+        this.warningCallback = warningCallback
+        this.failureCallback = failureCallback
+        this.mustContinueCallback = mustContinueCallback
+        this.modal = modal
     }
 
     private getDescriptorForLogs = (paymentDescriptor: string | null): string => {
@@ -52,30 +52,31 @@ export class Khipu {
                 const response = { paymentDescriptor: this.paymentDescriptor, ...event.data }
                 switch (response.type) {
                     case 'OPERATION_SUCCESS':
-                        this.successCallback(response)
+                        if (this.successCallback) this.successCallback(response)
                         break
                     case 'OPERATION_WARNING':
-                        this.warningCallback(response)
+                        if (this.warningCallback) this.warningCallback(response)
                         break
                     case 'OPERATION_MUST_CONTINUE':
-                        this.mustContinueCallback(response)
+                        if (this.mustContinueCallback) this.mustContinueCallback(response)
                         break
                     case 'OPERATION_FAILURE':
-                        this.failureCallback(response)
+                        if (this.failureCallback) this.failureCallback(response)
                         break
                     case 'EXIT_URL':
                         this.closeModal(response.exitUrl)
                         break
                     case 'CLOSE_MODAL':
-                        this.failureCallback({
-                            paymentDescriptor: this.paymentDescriptor,
-                            operationId: this.paymentDescriptor,
-                            type: 'OPERATION_FAILURE',
-                            title: 'No se pudo completar la transferencia',
-                            body: 'Por favor, intÃ©ntalo mÃ¡s tarde',
-                            failureReason: 'USER_CANCELED',
-                            events: []
-                        })
+                        if (this.failureCallback)
+                            this.failureCallback({
+                                paymentDescriptor: this.paymentDescriptor,
+                                operationId: this.paymentDescriptor,
+                                type: 'OPERATION_FAILURE',
+                                title: 'No se pudo completar la transferencia',
+                                body: 'Por favor, intÃ©ntalo mÃ¡s tarde',
+                                failureReason: 'USER_CANCELED',
+                                events: []
+                            })
                         this.closeModal()
                         break
                     case 'SUCCESS_MODAL':
@@ -94,7 +95,7 @@ export class Khipu {
                 console.error('postMessageListener - Error', error)
                 return
             }
-            if (this.settings.options.skipExitPage === true) {
+            if (this.settings?.options.skipExitPage === true) {
                 this.closeModal()
             }
         }
@@ -118,7 +119,7 @@ export class Khipu {
             )
             return
         }
-        this.iframeElement.contentWindow.postMessage(message, '*')
+        this.iframeElement.contentWindow?.postMessage(message, '*')
         console.log(
             `[id: ${this.getDescriptorForLogs(message.paymentDescriptor)}] posted message to iframe`,
             this.iframeElement
@@ -138,21 +139,17 @@ export class Khipu {
         }
         const params = {
             paymentDescriptor: this.paymentDescriptor,
-            style: this.settings.options.style || {},
-            skipExitPage: this.settings.options.skipExitPage,
-            modal: this.settings.modal,
+            style: this.settings?.options.style || {},
+            skipExitPage: this.settings?.options.skipExitPage,
+            modal: this.settings?.options.modal,
             type: 'khipu-iframe-request',
-            uiType: this.settings.uiType,
-            locale: this.settings.locale
-        }
-        if (this.settings.sessionCookieName != null && this.settings.sessionCookieValue != null) {
-            params.sessionCookieName = this.settings.sessionCookieName
-            params.sessionCookieValue = this.settings.sessionCookieValue
+            uiType: this.settings?.uiType,
+            locale: this.settings?.locale
         }
         this.iframeElement = document.createElement('iframe')
         this.iframeElement.id = 'khipu-web-frame'
         this.iframeElement.src =
-            Khipu.JS_KHIPU_URL + (this.settings.options.style.theme === 'dark' ? '?bg=000' : '')
+            Khipu.JS_KHIPU_URL + (this.settings?.options.style?.theme === 'dark' ? '?bg=000' : '')
         this.iframeElement.setAttribute('allowFullscreen', '')
         this.iframeElement.allow = 'clipboard-read; clipboard-write'
         this.iframeElement.addEventListener('load', () => {
@@ -166,18 +163,20 @@ export class Khipu {
                 }, 3000)
                 // @ts-ignore
                 window._3pc1 = () => {
-                    console.log(
-                        `[id: ${this.getDescriptorForLogs(params.paymentDescriptor)}] 3pc1 - done`
-                    )
+                    if (params.paymentDescriptor)
+                        console.log(
+                            `[id: ${this.getDescriptorForLogs(params.paymentDescriptor)}] 3pc1 - done`
+                        )
                     this.load3pc2()
                 }
                 // @ts-ignore
                 window._3pc2 = (cookieSuccess: boolean) => {
-                    console.log(
-                        `[id: ${this.getDescriptorForLogs(params.paymentDescriptor)}] 3pc2 - done ${cookieSuccess}`
-                    )
+                    if (params.paymentDescriptor)
+                        console.log(
+                            `[id: ${this.getDescriptorForLogs(params.paymentDescriptor)}] 3pc2 - done ${cookieSuccess}`
+                        )
                     this.thirdPartyCookiesEnabled = cookieSuccess
-                    if (this.settings.skipFP !== undefined && this.settings.skipFP) {
+                    if (this.settings?.skipFP !== undefined && this.settings.skipFP) {
                         this.postMessageToIframe({
                             ...params,
                             stfp: undefined,
@@ -219,37 +218,39 @@ export class Khipu {
         const script = document.createElement('script')
         script.type = 'text/javascript'
         script.src = Khipu.WS_KHIPU_URL + '/3pc1'
-        this.mountElement.appendChild(script)
+        this.mountElement?.appendChild(script)
     }
 
     private load3pc2(): void {
         const script = document.createElement('script')
         script.type = 'text/javascript'
         script.src = Khipu.WS_KHIPU_URL + '/3pc2'
-        this.mountElement.appendChild(script)
+        this.mountElement?.appendChild(script)
     }
 
     private loadUDFP(): void {
         const udfp = document.createElement('script')
         udfp.type = 'text/javascript'
         udfp.src = 'https://px.srvcdn.net/udc/dad8a1ee.js'
-        this.mountElement.appendChild(udfp)
+        this.mountElement?.appendChild(udfp)
     }
 
     private mountIframe(): void {
-        this.mountElement.appendChild(this.iframeElement)
+        if (this.iframeElement != undefined) {
+            this.mountElement?.appendChild(this.iframeElement)
+        }
     }
 
     private umountIframe(): void {
         if (this.iframeElement) {
-            this.mountElement.removeChild(this.iframeElement)
+            this.mountElement?.removeChild(this.iframeElement)
             this.iframeElement = undefined
         }
     }
 
     private umountModal(): void {
         if (this.iframeElement) {
-            this.modal.close()
+            this.modal?.close()
             this.iframeElement = undefined
         }
     }
@@ -418,35 +419,37 @@ export class Khipu {
             this.umountIframe()
         }
         this.renderIframe()
-        if (this.settings.modal !== true) {
+        if (this.settings?.options.modal !== true) {
             this.mountIframe()
         } else {
-            this.modal = new KhipuModal({
-                mountElement: this.mountElement,
+            const params = {
                 contentElement: this.iframeElement,
-                ...this.settings.modalOptions,
-                theme: this.settings.options.style.theme
-            })
+                mountElement: this.mountElement,
+                maxWidth: this.settings?.modalOptions?.maxWidth,
+                maxHeight: this.settings?.modalOptions?.maxHeight,
+                theme: this.settings?.options.style?.theme
+            }
+            this.modal = new KhipuModal(params)
         }
         return this.paymentDescriptor
     }
 
     private restart(): void {
         this.close()
-        this.start(this.paymentDescriptor)
+        if (this.paymentDescriptor) this.start(this.paymentDescriptor)
     }
 
     private closeModal(url?: string): void {
         this.close()
-        if (this.settings.closeCallback !== undefined) {
-            this.settings.closeCallback(url)
+        if (this.settings?.closeCallback !== undefined) {
+            this.settings?.closeCallback(url)
         } else if (url !== undefined) {
             window.location.assign(url)
         }
     }
 
     private close(): void {
-        if (this.settings.modal !== true) {
+        if (this.settings?.options.modal !== true) {
             this.umountIframe()
         } else {
             this.umountModal()
@@ -477,7 +480,7 @@ export class Khipu {
         successCallback: (response: any) => void,
         warningCallback: (response: any) => void,
         failureCallback: (response: any) => void,
-        mustContinueCallback: (response: any) => void = null
+        mustContinueCallback: (response: any) => void = () => {}
     ): void {
         const defaultSettings = {
             mountElement: null,
@@ -493,7 +496,7 @@ export class Khipu {
             this.mountElement = document.createElement('div')
             this.mountElement.id = 'khipu-web-root'
             document.body.appendChild(this.mountElement)
-            this.settings.modal = true
+            this.settings.options.modal = true
         }
         this.successCallback = successCallback
         this.warningCallback = warningCallback
@@ -504,27 +507,29 @@ export class Khipu {
 }
 
 class KhipuModal {
-    private readonly contentElement: HTMLIFrameElement
-    private readonly mountElement: HTMLDivElement
+    private readonly contentElement: HTMLIFrameElement | undefined
+    private readonly mountElement: HTMLDivElement | undefined
     private readonly maxWidth: number
     private readonly maxHeight: number
     private readonly cssBuilder: KhipuCssBuilder
     private readonly theme: string
-    private modalElement: HTMLDivElement
+    private modalElement: HTMLDivElement | undefined
 
     constructor(options: {
-        contentElement: HTMLIFrameElement
-        mountElement: HTMLDivElement
-        maxWidth: number
-        maxHeight: number
+        contentElement: HTMLIFrameElement | undefined
+        mountElement: HTMLDivElement | undefined
+        maxWidth: number | undefined
+        maxHeight: number | undefined
         theme?: string
+        modalElement?: HTMLDivElement | undefined
     }) {
         this.contentElement = options.contentElement
         this.mountElement = options.mountElement
-        this.maxWidth = options.maxWidth
-        this.maxHeight = options.maxHeight
+        this.maxWidth = options.maxWidth!
+        this.maxHeight = options.maxHeight!
         this.cssBuilder = new KhipuCssBuilder('khipu-modal-style')
         this.theme = options.theme ?? 'light'
+        this.modalElement = options.modalElement!
         this.render()
         this.mount()
     }
@@ -535,12 +540,16 @@ class KhipuModal {
     }
 
     private umount(): void {
-        this.mountElement.removeChild(this.modalElement)
+        if (this.modalElement != undefined) {
+            this.mountElement?.removeChild(this.modalElement)
+        }
     }
 
     private mount(): void {
         this.cssBuilder.build()
-        this.mountElement.appendChild(this.modalElement)
+        if (this.modalElement != undefined) {
+            this.mountElement?.appendChild(this.modalElement)
+        }
     }
 
     private render(): void {
@@ -550,7 +559,7 @@ class KhipuModal {
         overlayElement.classList.add('khipu-overlay')
         const modalContentElement = document.createElement('div')
         modalContentElement.classList.add('khipu-modal-content')
-        modalContentElement.appendChild(this.contentElement)
+        if (this.contentElement != undefined) modalContentElement.appendChild(this.contentElement)
         modalElement.appendChild(overlayElement)
         modalElement.appendChild(modalContentElement)
         this.modalElement = modalElement
@@ -610,10 +619,11 @@ class KhipuModal {
 class KhipuCssBuilder {
     private readonly name: string
     private cssConfiguration: { [label: string]: { [key: string]: string } } = {}
-    private styleElement: HTMLStyleElement
+    private styleElement?: HTMLStyleElement
 
-    constructor(name: string) {
+    constructor(name: string, styleElement?: HTMLStyleElement) {
         this.name = name
+        this.styleElement = styleElement
     }
 
     public addProperty(label: string, key: string, value: string): KhipuCssBuilder {
@@ -660,11 +670,13 @@ class KhipuCssBuilder {
         this.styleElement = document.createElement('style')
         this.styleElement.id = this.name
         this.styleElement.appendChild(document.createTextNode(this.render()))
-        document.querySelector('body').appendChild(this.styleElement)
+        document.querySelector('body')?.appendChild(this.styleElement)
     }
 
     private umount(): void {
-        document.querySelector('body').removeChild(this.styleElement)
+        if (this.styleElement != undefined) {
+            document.querySelector('body')?.removeChild(this.styleElement)
+        }
     }
 
     public build(): void {
@@ -674,4 +686,31 @@ class KhipuCssBuilder {
     public destroy(): void {
         this.umount()
     }
+}
+
+interface StyleOptions {
+    theme?: string
+}
+
+interface Options {
+    skipExitPage: boolean
+    modal: boolean
+    style?: StyleOptions
+}
+
+interface ModalOptions {
+    maxWidth: number
+    maxHeight: number
+}
+
+interface Settings {
+    mountElement: HTMLDivElement | null
+    options: Options
+    modalOptions?: ModalOptions
+    uiType?: string
+    locale?: string
+    sessionCookieName?: string
+    sessionCookieValue?: string
+    skipFP?: boolean
+    closeCallback?: (url?: string) => void
 }
