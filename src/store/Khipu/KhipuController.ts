@@ -37,7 +37,8 @@ export class KhipuController {
             body: JSON.stringify({
                 amount: params.amount,
                 currency: params.currency,
-                subject: params.subject
+                subject: params.subject,
+                return_url: params.return_url
             })
         })
         const response: PaymentResponse = await resp.json()

@@ -87,8 +87,9 @@ export default {
                 8000,
                 'CLP',
                 'La Revolución Simbólica'
-                // ...'http://localhost:5173/transaction-success'
             )
+            request.return_url = 'https://www.lametamorfosisdelalma.com/transaction-completed'
+            request.cancel_url = 'https://www.lametamorfosisdelalma.com/transaction-cencelled'
 
             try {
                 const paymentResponse: Promise<PaymentResponse> =
