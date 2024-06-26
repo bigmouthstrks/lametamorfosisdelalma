@@ -2,19 +2,36 @@
     <Navbar title="La metamorfosis del Alma" />
     <div class="view-container d-flex justify-content-center home-container">
         <div class="row justify-content-center align-items-center">
-            <HomeNavItem title="Conoce mis escritos" :image="openBook" destination="writings" />
+            <HomeNavItem
+                title="Conoce mis escritos"
+                :image="openBook"
+                destination="escritos"
+                :enabled="false"
+            />
             <HomeNavItem
                 title="Consigue la primera publicación digital"
                 :image="heart"
-                destination="writings"
+                destination="escritos"
+                :enabled="true"
             />
             <HomeNavItem
                 title="Descubre la fuerza instintiva femenina"
                 :image="bookCover"
-                destination="reading-club"
+                destination="club-de-lectura"
+                :enabled="true"
             />
-            <HomeNavItem title="Agenda Tarot" :image="rock" destination="sessions" />
-            <HomeNavItem title="Iniciemos terapia juntos" :image="tea" destination="sessions" />
+            <HomeNavItem
+                title="Agenda Tarot"
+                :image="rock"
+                destination="sessions"
+                :enabled="false"
+            />
+            <HomeNavItem
+                title="Iniciemos terapia juntos"
+                :image="tea"
+                destination="sessions"
+                :enabled="false"
+            />
         </div>
     </div>
     <FooterComponent />
@@ -51,10 +68,16 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.app {
+    background-color: #699ac4 !important;
+}
 .navbar-container,
 .footer-container,
 .view-container {
     background-color: #699ac4 !important;
     color: #fffdd0 !important;
+}
+.vinque {
+    font-family: var(--vinque);
 }
 </style>

@@ -25,7 +25,7 @@
                 </div>
                 <div class="text-center">
                     <div
-                        class="badge rounded-pill ml-1 me-1 bg-success text-light"
+                        class="badge rounded-pill ml-1 me-1 text-light bg-success"
                         v-for="(tag, i) in productData.tags"
                         :key="i"
                     >
@@ -39,7 +39,6 @@
                     <button @click="invokeKhipu" class="purchase-button rounded-pill p-2 ml-1 me-1">
                         Comprar ebook
                     </button>
-                    <button class="btn btn-light rounded-pill">💟</button>
                 </div>
             </div>
         </div>

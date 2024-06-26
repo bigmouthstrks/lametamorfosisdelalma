@@ -12,14 +12,14 @@ const routes: Array<RouteRecordRaw> = [
     { path: '/', component: HomeView },
     { path: '/about', component: AboutView },
     { path: '/sessions', component: SessionsView },
-    { path: '/writings', component: WritingsView },
+    { path: '/escritos', component: WritingsView },
     {
-        path: '/product/:id',
+        path: '/writings/:id',
         name: 'ProductDetailView',
         component: ProductDetailView,
         props: (route) => ({ id: route.params.id ?? 1 })
     },
-    { path: '/reading-club', component: ReadingClubView },
+    { path: '/club-de-lectura', component: ReadingClubView },
     { path: '/transaction-completed', component: TransactionCompletedView },
     { path: '/transaction-aborted', component: TransactionAbortedView }
 ]

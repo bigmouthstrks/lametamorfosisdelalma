@@ -17,7 +17,8 @@
             </div>
             <div class="col-6 col-md-8 row d-flex text-center">
                 <div class="more-info-container text-end">
-                    <div class="dropdown">
+                    <!-- TODO: Dropdown -->
+                    <!-- <div class="dropdown">
                         <button
                             class="btn border-0"
                             type="button"
@@ -30,7 +31,7 @@
                             <li><a class="dropdown-item" href="#">Compartir </a></li>
                             <li><a class="dropdown-item" href="#">Ver más</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="justify-content-center card-body">
                     <h4 class="magazine-title text-wrap">{{ product.title }}</h4>
@@ -50,7 +51,14 @@
                         {{ product.priceAsString }}
                         <small class="d-none d-sm-inline currency">CLP</small>
                     </p>
-                    <button class="purchase-button">Comprar</button>
+                    <router-link
+                        :to="{
+                            name: 'ProductDetailView',
+                            params: { id: product.id }
+                        }"
+                    >
+                        <button class="purchase-button">Ver más</button>
+                    </router-link>
                 </div>
             </div>
         </div>

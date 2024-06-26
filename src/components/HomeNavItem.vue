@@ -1,11 +1,24 @@
 <template>
     <div class="col-8 col-md-4 col-lg-2 ml-1 mr-1">
-        <router-link :to="'/' + destination">
-            <div class="text-center">
-                <img :src="image" class="navigation-img" alt="Image" />
-            </div>
-            <p class="home-opt-title text-center special-title">{{ title }}</p>
-        </router-link>
+        <div v-if="enabled">
+            <router-link :to="'/' + destination">
+                <div class="text-center">
+                    <img :src="image" class="navigation-img" alt="Image" />
+                </div>
+                <p class="home-opt-title text-center special-title">{{ title }}</p>
+            </router-link>
+        </div>
+        <div v-if="!enabled">
+            <router-link to="#">
+                <div class="text-center image-container">
+                    <img :src="image" class="navigation-img" alt="Image" />
+                    <div class="overlay">
+                        <p class="text-light overlay-text">Próximamente</p>
+                    </div>
+                </div>
+                <p class="home-opt-title text-center special-title">{{ title }}</p>
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -23,6 +36,10 @@ export default {
         },
         destination: {
             type: String,
+            required: true
+        },
+        enabled: {
+            type: Boolean,
             required: true
         }
     }
@@ -57,5 +74,41 @@ a:hover {
 .navigation-img:hover {
     transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
     transform: scale(1.07); /* Zoom in effect */
+}
+
+.image-container {
+    position: relative;
+    width: 300px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 20px; /* Adjust the font size as needed */
+    text-align: center;
 }
 </style>
