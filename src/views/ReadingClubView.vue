@@ -316,10 +316,7 @@ export default {
 .underline {
     text-decoration: underline;
 }
-.italic {
-    font-weight: lighter;
-    font-style: italic;
-}
+
 .line-md {
     line-height: 56px;
 }

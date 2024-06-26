@@ -138,3 +138,7 @@ body {
 .vinque {
     font-family: var(--vinque);
 }
+.italic {
+    font-weight: lighter;
+    font-style: italic;
+}

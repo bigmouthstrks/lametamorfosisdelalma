@@ -10,3 +10,9 @@ export default defineComponent({
     name: 'App'
 })
 </script>
+
+<style scoped>
+#app {
+    background-color: #699ac4 !important;
+}
+</style>

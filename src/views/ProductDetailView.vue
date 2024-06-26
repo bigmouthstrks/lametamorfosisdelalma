@@ -39,6 +39,12 @@
                     <button @click="invokeKhipu" class="purchase-button rounded-pill p-2 ml-1 me-1">
                         Comprar ebook
                     </button>
+                    <p class="text-secondary mt-1 italic">
+                        <small
+                            >(Después de completar el pago se enviará el ejemplar <br />
+                            por correo electrónico. ¡Gracias por tu compra!)</small
+                        >
+                    </p>
                 </div>
             </div>
         </div>

@@ -1,6 +1,9 @@
 <template>
     <Navbar title="La metamorfosis del Alma" :isBackVisible="false" backRoute="" />
-    <div class="view-container d-flex justify-content-center home-container">
+    <div class="subtitle mt-4 text-dark">
+        <p class="text-center vinque">Para un mundo psíquicamente sano y espiritualmente vivo</p>
+    </div>
+    <div class="view-container d-flex justify-content-center">
         <div class="row justify-content-center align-items-center">
             <HomeNavItem
                 title="Conoce mis escritos"
@@ -68,13 +71,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.app {
-    background-color: #699ac4 !important;
-}
 .navbar-container,
 .footer-container,
 .view-container {
     background-color: #699ac4 !important;
     color: #fffdd0 !important;
+}
+.view-container {
+    margin-top: 0px !important;
+}
+.subtitle {
+    background-color: #699ac4 !important;
+    color: #fffdd0 !important;
+    margin-bottom: -20px !important;
 }
 </style>
