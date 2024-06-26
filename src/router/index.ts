@@ -5,6 +5,8 @@ import SessionsView from '@/views/SessionsView.vue'
 import WritingsView from '@/views/WritingsView.vue'
 import ReadingClubView from '@/views/ReadingClubView.vue'
 import ProductDetailView from '@/views/ProductDetailView.vue'
+import TransactionSuccessView from '@/views/TransactionSuccessView.vue'
+import TransactionFailedView from '@/views/TransactionFailedView.vue'
 
 const routes: Array<RouteRecordRaw> = [
     { path: '/', component: HomeView },
@@ -17,7 +19,9 @@ const routes: Array<RouteRecordRaw> = [
         component: ProductDetailView,
         props: (route) => ({ id: route.params.id ?? 1 })
     },
-    { path: '/reading-club', component: ReadingClubView }
+    { path: '/reading-club', component: ReadingClubView },
+    { path: '/transaction-success', component: TransactionSuccessView },
+    { path: '/transaction-failed', component: TransactionFailedView }
 ]
 
 const router = createRouter({

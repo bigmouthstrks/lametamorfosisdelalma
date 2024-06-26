@@ -1,7 +1,7 @@
 import { Khipu } from './Khipu'
 import { PaymentResponse } from './PaymentResponse'
 import { PaymentRequest } from './PaymentRequest'
-
+import { HttpMethod } from '@/utils/APIService'
 export class KhipuController {
     public static invoke(paymentId: string) {
         const callback = (result: any) => {
@@ -29,7 +29,7 @@ export class KhipuController {
 
     public static async createPayment(params: PaymentRequest): Promise<PaymentResponse> {
         const resp = await fetch(`https://payment-api.khipu.com/v3/payments`, {
-            method: 'POST',
+            method: HttpMethod.POST,
             headers: {
                 'Content-Type': 'application/json',
                 'x-api-key': '36899be1-4931-4e4d-9a7a-f6952b94af92'
