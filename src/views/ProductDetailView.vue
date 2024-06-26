@@ -87,6 +87,7 @@ export default {
                 8000,
                 'CLP',
                 'La Revolución Simbólica'
+                // ...'http://localhost:5173/transaction-success'
             )
 
             try {
