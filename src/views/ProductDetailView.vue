@@ -1,6 +1,6 @@
 <template>
     <Navbar :title="productData.title" />
-    <div class="view-container mb-3">
+    <div class="view-container">
         <br />
         <br />
         <div class="container bg-light shadow rounded">
@@ -36,7 +36,7 @@
                     <p class="price">
                         {{ productData.priceAsString }} <small class="currency">CLP</small>
                     </p>
-                    <button class="purchase-button rounded-pill p-2 ml-1 me-1">
+                    <button @click="invokeKhipu" class="purchase-button rounded-pill p-2 ml-1 me-1">
                         Comprar ebook
                     </button>
                     <button class="btn btn-light rounded-pill">💟</button>
@@ -44,6 +44,7 @@
             </div>
         </div>
         <AboutAuthor :authorName="authorName" />
+        <div id="khipu-web-root"></div>
     </div>
     <FooterComponent />
 </template>
@@ -54,6 +55,9 @@ import FooterComponent from '../components/FooterComponent.vue'
 import AboutAuthor from '../components/AboutAuthor.vue'
 import { ProductController } from '../store/Product/ProductController'
 import Product from '../store/Product/Product'
+import { KhipuController } from '../store/Khipu/KhipuController'
+import { PaymentResponse } from '../store/Khipu/PaymentResponse'
+import { PaymentRequest } from '../store/Khipu/PaymentRequest'
 
 export default {
     name: 'ProductDetailView',
@@ -75,6 +79,26 @@ export default {
         authorName() {
             const product = ProductController.getProduct(this.id) as Product
             return product.author
+        }
+    },
+    methods: {
+        invokeKhipu() {
+            const request: PaymentRequest = new PaymentRequest(
+                8000,
+                'CLP',
+                'La Revolución Simbólica'
+            )
+
+            try {
+                const paymentResponse: Promise<PaymentResponse> =
+                    KhipuController.createPayment(request)
+                paymentResponse.then((response) => {
+                    const paymentId = response.payment_id
+                    KhipuController.invoke(paymentId)
+                })
+            } catch (error) {
+                console.error('Error creating payment:', error)
+            }
         }
     }
 }

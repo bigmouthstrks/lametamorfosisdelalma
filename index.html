@@ -1,45 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <link href="https://fonts.cdnfonts.com/css/vinque" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/impact" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.cdnfonts.com/css/vinque" rel="stylesheet" />
+        <link href="https://fonts.cdnfonts.com/css/impact" rel="stylesheet" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+            rel="stylesheet"
+        />
 
-    <link rel="stylesheet" href="./src/assets/main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Metamorfosis del Alma</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+        <link rel="stylesheet" href="./src/assets/main.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script lang="js">
-      document.addEventListener('mousemove', function(e) {
-        for (let i = 0; i < 5; i++) {
-          const stardust = document.createElement('div');
-          stardust.className = 'stardust';
-          document.body.appendChild(stardust);
+        <!-- Khipu -->
+        <script src="https://js.khipu.com/v1/kws.js"></script>
 
-          const size = Math.random() * 4 + 1;
-          stardust.style.width = `${size}px`;
-          stardust.style.height = `${size}px`;
-          stardust.style.backgroundColor = `rgba(255, 255, 255, ${Math.random()})`;
+        <title>La Metamorfosis del Alma</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="module" src="/src/main.ts"></script>
 
-          const offsetX = Math.random() * 20 - 10;
-          const offsetY = Math.random() * 20 - 10;
-          stardust.style.left = `${e.clientX + offsetX}px`;
-          stardust.style.top = `${e.clientY + offsetY}px`;
+        <script lang="js">
+            document.addEventListener('mousemove', function (e) {
+                for (let i = 0; i < 5; i++) {
+                    const stardust = document.createElement('div')
+                    stardust.className = 'stardust'
+                    document.body.appendChild(stardust)
 
-          stardust.addEventListener('animationend', function() {
-            stardust.parentElement.removeChild(stardust);
-          });
-        }
-      });
-    </script>
-  </body>
+                    const size = Math.random() * 4 + 1
+                    stardust.style.width = `${size}px`
+                    stardust.style.height = `${size}px`
+                    stardust.style.backgroundColor = `rgba(255, 255, 255, ${Math.random()})`
+
+                    const offsetX = Math.random() * 20 - 10
+                    const offsetY = Math.random() * 20 - 10
+                    stardust.style.left = `${e.clientX + offsetX}px`
+                    stardust.style.top = `${e.clientY + offsetY}px`
+
+                    stardust.addEventListener('animationend', function () {
+                        stardust.parentElement.removeChild(stardust)
+                    })
+                }
+            })
+        </script>
+    </body>
 </html>
