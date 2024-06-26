@@ -66,6 +66,15 @@
                                 y profundizar <br />
                                 en nuestra <span class="italic underline">sabiduría femenina</span>.
                             </p>
+                            <br />
+                            <br />
+                            <button
+                                type="button"
+                                style="width: 320px; height: 120px"
+                                class="bg-light text-dark shadow-0 border-0 text-md"
+                            >
+                                Quiero participar
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -188,7 +197,7 @@
         <div class="section d-flex align-items-center bg-dark">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 col-xl-5">
+                    <div class="d-flex align-items-center col-12 col-xl-5">
                         <img
                             class="full-w-img img-fluid"
                             src="../assets/images/sunrise.avif"
@@ -204,7 +213,7 @@
                                 el camino
                             </h1>
                             <br />
-                            <p class="text-light text-lg bold-font">
+                            <p class="text-light text-md bold-font">
                                 Para dejar de vivir una vida como criaturas disfrazadas,
                                 <br />
                                 para aprender a confiar en nuestra intuición,
@@ -227,11 +236,47 @@
                                 cobija y hoy está dispuesta a compartir su sabiduría.
                             </p>
                             <br />
-                            <br />
                             <p class="text-light bold-font text-xl pacifico">
                                 Este es el momento de decirle que sí a la voz del alma
                             </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Parte final -->
+        <div class="section d-flex align-items-center bg-light">
+            <div class="container">
+                <div class="text-center">
+                    <img class="full-w-img img-fluid" src="../assets/images/trees.gif" alt="" />
+                </div>
+                <div class="m-5">
+                    <h1 class="times text-justify quote text-md light-font">
+                        «Si las mujeres la han perdido, cuando la vuelvan a encontrar, pugnarán por
+                        conservarla para siempre. Una vez que la hayan recuperado, lucharán con
+                        todas sus fuerzas para conservarla, pues con ella florece su vida creativa;
+                        sus relaciones adquieren significado, profundidad y salud; sus ciclos
+                        sexuales, creativos, laborales y lúdicos se restablecen; ya no son el blanco
+                        de las depredaciones de los demás, y tienen el mismo derecho a crecer y
+                        prosperar según las leyes de la naturaleza. Ahora su
+                        cansancio-del-final-de-la-jornada procede de un trabajo y un esfuerzo
+                        satisfactorios, no del hecho de haber estado encerradas en un esquema
+                        mental, una tarea o una relación excesivamente restringidos. Saben
+                        instintivamente cuándo tienen que morir las cosas y cuándo tienen que vivir;
+                        saben cómo alejarse y cómo quedarse.»
+                    </h1>
+                    <p class="text-end text-dark bold-font quote times text-md">
+                        Clarissa Pinkola Estés
+                    </p>
+                    <div class="container text-center">
+                        <button
+                            type="button"
+                            style="width: 280px; height: 100px"
+                            class="bg-dark text-light shadow-0 border-0 text-sm"
+                        >
+                            Quiero participar
+                        </button>
                     </div>
                 </div>
             </div>
