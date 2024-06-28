@@ -28,20 +28,30 @@ export class KhipuController {
     }
 
     public static async createPayment(params: PaymentRequest): Promise<PaymentResponse> {
+        const currentDate: Date = new Date()
+        const futureDate: Date = new Date(currentDate.getTime() + 60 * 60 * 1000)
+        const isoExpireDate: string = futureDate.toISOString()
+
         const resp = await fetch(`https://payment-api.khipu.com/v3/payments`, {
             method: HttpMethod.POST,
             headers: {
                 'Content-Type': 'application/json',
-                'x-api-key': '36899be1-4931-4e4d-9a7a-f6952b94af92'
+                'x-api-key': '63498648-dab5-42d8-9f71-a2da7ac5e997'
             },
             body: JSON.stringify({
                 amount: params.amount,
                 currency: params.currency,
                 subject: params.subject,
                 return_url: params.return_url,
-                cancel_url: params.cancel_url
+                cancel_url: params.cancel_url,
+                notify_url: params.notify_url,
+                picture_url:
+                    'https://lametamorfosisdelalma.s3.sa-east-1.amazonaws.com/la-revolucion-simbolica-cut.jpg',
+                expires_date: isoExpireDate,
+                notify_api_version: '3.0'
             })
         })
+
         const response: PaymentResponse = await resp.json()
         return response
     }

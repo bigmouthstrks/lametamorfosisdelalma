@@ -86,10 +86,7 @@ export class Khipu {
                         this.restart()
                         break
                     default:
-                        console.error(
-                            `postMessageListener - Unhandled response: ${JSON.stringify(response)}`
-                        )
-                        return
+                        break
                 }
             } catch (error) {
                 console.error('postMessageListener - Error', error)
