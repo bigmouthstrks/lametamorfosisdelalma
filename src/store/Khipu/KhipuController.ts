@@ -36,7 +36,7 @@ export class KhipuController {
             method: HttpMethod.POST,
             headers: {
                 'Content-Type': 'application/json',
-                'x-api-key': '63498648-dab5-42d8-9f71-a2da7ac5e997'
+                'x-api-key': '36899be1-4931-4e4d-9a7a-f6952b94af92'
             },
             body: JSON.stringify({
                 amount: params.amount,

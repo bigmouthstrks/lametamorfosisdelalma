@@ -95,8 +95,7 @@ export default {
             )
             request.return_url = 'https://www.lametamorfosisdelalma.com/transaction-completed'
             request.cancel_url = 'https://www.lametamorfosisdelalma.com/transaction-cencelled'
-            request.notify_url =
-                'https://lametamorfosisdelalma-backend-pbfspzykf-bigmouthstrks-projects.vercel.app/webhoook'
+            request.notify_url = 'https://lametamorfosis-backend-6105c00f8483.herokuapp.com/webhook'
 
             try {
                 const paymentResponse: Promise<PaymentResponse> =
