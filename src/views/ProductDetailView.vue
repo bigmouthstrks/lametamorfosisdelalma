@@ -79,10 +79,10 @@ export default {
     },
     computed: {
         productData() {
-            return ProductController.getProduct(this.id) as Product
+            return ProductController.getLocalProduct(this.id) as Product
         },
         authorName() {
-            const product = ProductController.getProduct(this.id) as Product
+            const product = ProductController.getLocalProduct(this.id) as Product
             return product.author
         }
     },

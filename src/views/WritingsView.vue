@@ -29,7 +29,7 @@ export default {
         FooterComponent
     },
     data() {
-        return { products: ProductController.getProducts() }
+        return { products: ProductController.getLocalProducts() }
     }
 }
 </script>

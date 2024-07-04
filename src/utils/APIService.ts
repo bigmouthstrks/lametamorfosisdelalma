@@ -31,4 +31,27 @@ export class APIService {
             onFailure(error as Error)
         }
     }
+
+    static async returningRequest<T>(
+        url: string,
+        method: HttpMethod,
+        onFailure: FailureCallback,
+        body?: any
+    ): Promise<T> {
+        try {
+            const response = await fetch(url, {
+                method,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            })
+
+            if (!response.ok) throw new Error('Error in service layer')
+            return (await response.json()) as T
+        } catch (error) {
+            onFailure(error as Error)
+            throw error
+        }
+    }
 }

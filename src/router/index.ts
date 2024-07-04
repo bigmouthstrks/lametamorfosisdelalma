@@ -7,6 +7,7 @@ import ReadingClubView from '@/views/ReadingClubView.vue'
 import ProductDetailView from '@/views/ProductDetailView.vue'
 import TransactionCompletedView from '@/views/TransactionCompletedView.vue'
 import TransactionAbortedView from '@/views/TransactionAbortedView.vue'
+import ProductsManagerView from '@/views/ProductsManagerView.vue'
 
 const routes: Array<RouteRecordRaw> = [
     { path: '/', component: HomeView },
@@ -21,6 +22,10 @@ const routes: Array<RouteRecordRaw> = [
         name: 'ProductDetailView',
         component: ProductDetailView,
         props: (route) => ({ id: route.params.id ?? 1 })
+    },
+    {
+        path: '/products/manager',
+        component: ProductsManagerView
     }
 ]
 
