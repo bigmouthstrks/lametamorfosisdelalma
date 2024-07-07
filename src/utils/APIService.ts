@@ -44,8 +44,6 @@ export class APIService {
                 method,
                 headers: {
                     'content-type': 'application/json',
-                    Authorization:
-                        'Bearer vercel_blob_rw_5SKeeCZ6ao7d1LIe_aAMwpm8CMlFgOgi7okLTXvCYShWKCk',
                     'cache-control': 'public, max-age=31536000, s-maxage=300',
                     'content-disposition': 'inline; filename="products.json"'
                 },
