@@ -2,7 +2,7 @@
     "version": 2,
     "routes": [
         {
-            "src": "/(.*)",
+            "src": "*",
             "headers": {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
