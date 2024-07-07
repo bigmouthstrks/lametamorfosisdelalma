@@ -51,6 +51,9 @@ import openBook from '@/assets/images/open-book.png'
 import heart from '@/assets/images/heart.png'
 import rock from '@/assets/images/rock.png'
 
+import { onMounted } from 'vue'
+import { ProductController } from '../store/Product/ProductController'
+
 export default defineComponent({
     name: 'Home',
     components: {
@@ -66,6 +69,14 @@ export default defineComponent({
             heart,
             rock
         }
+    },
+    setup() {
+        onMounted(async () => {
+            const products: Promise<any> = await ProductController.getProducts()
+            products.then((result) => {
+                console.log(result)
+            })
+        })
     }
 })
 </script>
