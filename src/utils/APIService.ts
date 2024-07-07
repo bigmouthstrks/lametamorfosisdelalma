@@ -38,10 +38,11 @@ export class APIService {
         onFailure: FailureCallback,
         headers?: any,
         body?: any
-    ): Promise<T> {
+    ): Promise<T | undefined> {
         try {
             const response = await fetch(url, {
                 method,
+                mode: 'cors',
                 headers: {
                     'content-type': 'application/json',
                     'cache-control': 'public, max-age=31536000, s-maxage=300',

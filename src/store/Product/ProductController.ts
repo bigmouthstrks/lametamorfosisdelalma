@@ -12,7 +12,7 @@ export class ProductController {
 
     static async getProducts(): Promise<any> {
         const products = await APIService.returningRequest<any>(
-            'https://5skeecz6ao7d1lie.public.blob.vercel-storage.com/products/products-cb9LFOvmAyoYFIs44OuI3fiUQDFYPC.json',
+            'https://5skeecz6ao7d1lie.public.blob.vercel-storage.com/products/products-cb9LFOvmAyoYFIs44OuI3fiUQDFYPC.json/',
             HttpMethod.GET,
             (error) => console.log(error)
         )
