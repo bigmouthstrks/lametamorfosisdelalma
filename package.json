@@ -16,6 +16,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@popperjs/core": "^2.11.8",
     "@vercel/blob": "^0.23.4",
+    "@vercel/node": "^3.2.1",
     "bootstrap": "^5.3.3",
     "ts-node": "^10.9.2",
     "vue": "^3.4.15",
