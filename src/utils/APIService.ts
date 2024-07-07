@@ -43,8 +43,6 @@ export class APIService {
             const response = await fetch(url, {
                 method,
                 headers: {
-                    authorization:
-                        'Bearer vercel_blob_rw_5SKeeCZ6ao7d1LIe_aAMwpm8CMlFgOgi7okLTXvCYShWKCk',
                     'content-type': 'application/json',
                     'cache-control': 'public, max-age=31536000, s-maxage=300',
                     'content-disposition': 'inline; filename="products.json"'
