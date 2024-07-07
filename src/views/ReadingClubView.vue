@@ -293,23 +293,12 @@
 import Navbar from '../components/Navbar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 
-import { onMounted } from 'vue'
-import { ProductController } from '../store/Product/ProductController'
-
 export default {
     name: 'ReadingClubView',
     components: {
         Navbar,
         FooterComponent
     },
-    setup() {
-        onMounted(async () => {
-            const products: Promise<any> = await ProductController.getProducts()
-            products.then((result) => {
-                console.log(result)
-            })
-        })
-    }
 }
 </script>
 
