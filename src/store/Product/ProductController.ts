@@ -41,7 +41,6 @@ export class ProductController {
                 put('products/products.json', body, { access: 'public' })
             })
         } catch (error) {
-            console.log(error)
             console.log('Error adding product')
             throw error
         }
