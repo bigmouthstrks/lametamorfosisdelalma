@@ -9,6 +9,7 @@ export class ProductController {
         const products: Product[] = productsAsJson.products
         return products
     }
+
     static async getProducts(): Promise<any> {
         const products = await APIService.returningRequest<any>(
             'https://5skeecz6ao7d1lie.public.blob.vercel-storage.com/products/products-cb9LFOvmAyoYFIs44OuI3fiUQDFYPC.json',
@@ -18,12 +19,14 @@ export class ProductController {
         console.log(products)
         return products
     }
+
     static getLocalProduct(id: number) {
         const products: Product[] = productsAsJson.products
         const product = products.find((product) => product.id == id)
 
         return product
     }
+
     static async addProduct(product: Product) {
         try {
             const currentProducts: Promise<Product[]> = this.getProducts()
@@ -43,5 +46,4 @@ export class ProductController {
             throw error
         }
     }
-    static getBlobProducts() {}
 }
