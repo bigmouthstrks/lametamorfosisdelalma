@@ -1,3 +1,5 @@
+import axios, { type AxiosRequestConfig } from 'axios'
+
 export enum HttpMethod {
     GET = 'GET',
     POST = 'POST',
@@ -17,16 +19,18 @@ export class APIService {
         body?: any
     ): Promise<void> {
         try {
-            const response = await fetch(url, {
+            const config: AxiosRequestConfig = {
+                url,
                 method,
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(body)
-            })
+                data: body
+            }
 
-            if (!response.ok) throw new Error('Error in service layer')
-            if (onSuccess) onSuccess(await response.json())
+            const response = await axios(config)
+
+            if (onSuccess) onSuccess(response.data as T)
         } catch (error) {
             onFailure(error as Error)
         }
@@ -40,19 +44,20 @@ export class APIService {
         body?: any
     ): Promise<T | undefined> {
         try {
-            const response = await fetch(url, {
+            const config: AxiosRequestConfig = {
+                url,
                 method,
-                mode: 'cors',
                 headers: {
-                    'content-type': 'application/json',
+                    'Content-Type': 'application/json',
                     'cache-control': 'public, max-age=31536000, s-maxage=300',
-                    'content-disposition': 'inline; filename="products.json"'
+                    'content-disposition': 'inline; filename="products.json"',
+                    ...headers
                 },
-                body: JSON.stringify(body)
-            })
+                data: body
+            }
 
-            if (!response.ok) throw new Error('Error in service layer')
-            return (await response.json()) as T
+            const response = await axios(config)
+            return response.data as T
         } catch (error) {
             onFailure(error as Error)
             throw error
