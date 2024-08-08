@@ -47,10 +47,6 @@
                     </div>
                 </div>
                 <div class="justify-content-center">
-                    <p class="price">
-                        {{ product.priceAsString }}
-                        <small class="d-none d-sm-inline currency">CLP</small>
-                    </p>
                     <router-link
                         :to="{
                             name: 'ProductDetailView',
