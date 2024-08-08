@@ -89,7 +89,7 @@ export default {
     methods: {
         invokeKhipu() {
             const request: PaymentRequest = new PaymentRequest(
-                8000,
+                2000,
                 'CLP',
                 'La Revolución Simbólica'
             )
