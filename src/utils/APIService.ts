@@ -1,5 +1,3 @@
-import axios, { type AxiosRequestConfig } from 'axios'
-
 export enum HttpMethod {
     GET = 'GET',
     POST = 'POST',
@@ -19,18 +17,16 @@ export class APIService {
         body?: any
     ): Promise<void> {
         try {
-            const config: AxiosRequestConfig = {
-                url,
+            const response = await fetch(url, {
                 method,
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: body
-            }
+                body: JSON.stringify(body)
+            })
 
-            const response = await axios(config)
-
-            if (onSuccess) onSuccess(response.data as T)
+            if (!response.ok) throw new Error('Error in service layer')
+            if (onSuccess) onSuccess(await response.json())
         } catch (error) {
             onFailure(error as Error)
         }
@@ -42,22 +38,19 @@ export class APIService {
         onFailure: FailureCallback,
         headers?: any,
         body?: any
-    ): Promise<T | undefined> {
+    ): Promise<T> {
         try {
-            const config: AxiosRequestConfig = {
-                url,
+            const response = await fetch(url, {
                 method,
+                mode: 'cors',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'cache-control': 'public, max-age=31536000, s-maxage=300',
-                    'content-disposition': 'inline; filename="products.json"',
-                    ...headers
+                    'Content-type': 'application/x-www-form-urlencoded'
                 },
-                data: body
-            }
+                body: JSON.stringify(body)
+            })
 
-            const response = await axios(config)
-            return response.data as T
+            if (!response.ok) throw new Error('Error in service layer')
+            return (await response.json()) as T
         } catch (error) {
             onFailure(error as Error)
             throw error

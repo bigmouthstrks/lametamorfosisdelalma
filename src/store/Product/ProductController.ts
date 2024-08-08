@@ -1,6 +1,6 @@
 import productsAsJson from './products.json'
 import { Stringify } from '../../utils/JSONStringify'
-import Product from './Product'
+import Product, { type ProductsBaseResponse } from './Product'
 import { put } from '@vercel/blob'
 import { APIService, HttpMethod } from '@/utils/APIService'
 
@@ -10,14 +10,13 @@ export class ProductController {
         return products
     }
 
-    static async getProducts(): Promise<any> {
-        const products = await APIService.returningRequest<any>(
+    static async getProducts(): Promise<Product[]> {
+        const products = await APIService.returningRequest<ProductsBaseResponse>(
             'https://5skeecz6ao7d1lie.public.blob.vercel-storage.com/products/products-cb9LFOvmAyoYFIs44OuI3fiUQDFYPC.json',
             HttpMethod.GET,
             (error) => console.log(error)
         )
-        console.log(products)
-        return products
+        return products.products
     }
 
     static getLocalProduct(id: number) {

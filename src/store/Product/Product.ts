@@ -54,3 +54,7 @@ export default class Product implements ProductInterface {
         this.author = author
     }
 }
+
+export interface ProductsBaseResponse {
+    products: Product[]
+}

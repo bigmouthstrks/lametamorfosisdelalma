@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import AboutView from '@/views/AboutView.vue'
 import SessionsView from '@/views/SessionsView.vue'
 import WritingsView from '@/views/WritingsView.vue'
 import ReadingClubView from '@/views/ReadingClubView.vue'
@@ -11,7 +10,6 @@ import ProductsManagerView from '@/views/ProductsManagerView.vue'
 
 const routes: Array<RouteRecordRaw> = [
     { path: '/', component: HomeView },
-    { path: '/about', component: AboutView },
     { path: '/sessions', component: SessionsView },
     { path: '/writings', name: 'WritingsView', component: WritingsView },
     { path: '/club-de-lectura', component: ReadingClubView },
