@@ -5,8 +5,8 @@
                 <router-link
                     :to="'/' + backRoute"
                     class="text-center col-2 navbar-brand special-title"
-                    >{{ backText }}</router-link
-                >
+                    ><font-awesome-icon :icon="backText"
+                /></router-link>
                 <router-link to="/" class="col-8 text-center navbar-brand special-title">{{
                     title
                 }}</router-link>
@@ -36,7 +36,7 @@ export default {
     computed: {
         backText() {
             if (this.isBackVisible) {
-                return '<--'
+                return 'chevron-left'
             } else {
                 return ''
             }

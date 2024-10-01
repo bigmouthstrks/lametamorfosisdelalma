@@ -96,6 +96,8 @@ export default {
             request.return_url = 'https://www.lametamorfosisdelalma.com/transaction-completed'
             request.cancel_url = 'https://www.lametamorfosisdelalma.com/transaction-cencelled'
             request.notify_url = 'https://lametamorfosis-backend-6105c00f8483.herokuapp.com/webhook'
+            request.picture_url =
+                'https://lametamorfosisdelalma.s3.sa-east-1.amazonaws.com/la-revolucion-simbolica-cut.jpg'
 
             try {
                 const paymentResponse: Promise<PaymentResponse> =

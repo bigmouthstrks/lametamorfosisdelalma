@@ -53,8 +53,9 @@
                     <div class="d-flex align-items-center col-12 col-xl-7">
                         <div>
                             <h1 class="text-light text-xl light-font">
-                                Encuentro semanal virtual en que <br />
-                                <strong>la obra de Clarissa Pinkola Estés cobrará vida.</strong>
+                                Encuentro semanal virtual <br />
+                                donde la obra de <br />
+                                <strong>Clarissa Pinkola Estés cobrará vida. </strong>
                             </h1>
                             <br />
                             <p class="text-lg text-justify text-light light-font line-md">
@@ -72,13 +73,22 @@
                             </p>
                             <br />
                             <br />
-                            <button
-                                type="button"
-                                style="width: 320px; height: 120px"
-                                class="bg-light text-dark shadow-0 border-0 text-md"
-                            >
-                                Quiero participar
-                            </button>
+                            <div class="container text-center">
+                                <button
+                                    type="button"
+                                    @click="invokeKhipu"
+                                    style="
+                                        font-size: 28px;
+                                        width: 320px;
+                                        height: 100px;
+                                        border-radius: 48px;
+                                    "
+                                    class="bg-light text-dark shadow-0 border-0 text-sm"
+                                >
+                                    Quiero ser parte
+                                </button>
+                            </div>
+                            <br />
                         </div>
                     </div>
                 </div>
@@ -90,198 +100,146 @@
                     Cuando sentimos el hambre del alma, es cuando debemos dedicarnos a la tarea de
                     la restauración.
                 </p>
-                <p class="text-md text-dark light-font line-lg">
+                <p class="text-lg text-dark line-md text-justify light-font">
                     Debemos aprender sobre la vida instintiva y completar nuestras iniciaciones
                     psíquicas, recuperar nuestros tesoros y reestablecer dentro de nosotras los
                     procesos vitales. Esto no lo logramos solas, lo logramos incorporando las
                     herramientas necesarias para transitar de mejor manera el mundo
                 </p>
-                <p class="text-md text-dark line-lg">
+                <p class="text-lg text-dark line-md text-justify">
                     Es hora de que nuestra naturaleza interior brille y empape nuestras vidas
                     <br />
                     A todas quienes desean atravesar el mundo del alma y de los seres humanos.
                 </p>
             </div>
         </div>
+
         <div class="section bg-dark d-flex justify-content-center align-items-center">
-            <div class="container text-center">
-                <div class="text-start mb-5">
-                    <img class="img-fluid" src="../assets/images/broken-sword-2.png" alt="" />
-                </div>
-                <p class="vinque italic text-xl text-light light-font">
-                    Taller Mujeres que corren con los lobos
-                </p>
-                <p class="text-md text-light light-font line-lg text-justify">
-                    Se abre un espacio en el que aprenderemos y fortaleceremos con otras mujeres,
-                    desde la psicología, los circulos de mujeres y los talleres literarios
-                </p>
-                <p class="text-md text-light line-lg text-justify">
-                    Te encontrarás con otras que, en la misma sintonía que tú, buscan ahondar en la
-                    naturaleza femenina, y sienten interés por aprender sobre el libro Mujeres que
-                    corren con los lobos. Quiero que las mujeres vivan sus vidas fortaleciéndose, no
-                    deteriorándose. Que encuentren los potenciales y logren seguir integrando
-                    vitalidad.
-                </p>
-                <div class="text-end mt-3">
-                    <img
-                        class="sword-rotate img-fluid"
-                        src="../assets/images/broken-sword-2.png"
-                        alt=""
-                    />
-                </div>
-            </div>
-        </div>
-        <div class="section bg-light d-flex justify-content-center align-items-center">
-            <div class="container" id="section-5">
-                <p class="text-xl text-dark light-font">Es para ti si:</p>
+            <div class="container">
                 <div class="row">
-                    <!-- First Column -->
-                    <div class="col-md-4">
-                        <div class="card bg-dark text-light text-sm p-4 shadow mb-4">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Te has visto en situaciones donde aceptas cosas que no quieres,
-                                    mostrando una sonrisa cuando quieres decir no.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card bg-dark text-light text-sm p-4 shadow mb-4">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Tienes una voz interna que te debilita en vez de dar ánimos y
-                                    protección.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Second Column (Offset) -->
-                    <div class="col-md-4 offset-col">
-                        <div class="card bg-dark text-light text-sm p-4 shadow mb-4">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    De alguna manera el libro Mujeres que corren con los lobos ha
-                                    aparecido en tu vida y quieres aprender más sobre sus
-                                    enseñanzas.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card bg-dark text-light text-sm p-4 shadow mb-4">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Te interesa la psicología, la espiritualidad y sientes un
-                                    llamado a profundizar en la naturaleza Salvaje femenina.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Third Column -->
-                    <div class="col-md-4">
-                        <div class="card bg-dark text-light text-sm p-4 shadow mb-4">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Ansías reencontrarte con una parte más genuina tuya que sabes
-                                    está ahí.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card bg-dark text-light text-sm p-4 shadow mb-4">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Buscas compartir y aprender junto a otras mujeres y reconocer a
-                                    otras que portan la misma semilla que tú.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section d-flex align-items-center bg-dark">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="d-flex align-items-center col-12 col-xl-5">
+                    <div class="col-12 col-xl-5">
                         <img
                             class="full-w-img img-fluid"
-                            src="../assets/images/sunrise.avif"
+                            src="../assets/images/miamore.webp"
                             alt=""
                         />
                     </div>
-                    <div class="d-flex align-items-center col-12 col-xl-6">
+                    <div class="col 12 col-xl-7 d-flex align-items-center">
                         <div>
-                            <h1 class="text-light text-md light-font">
-                                Este libro recoge la tradición oral de diferentes lugares del mundo,
-                                para permitir a las mujeres el despertar de su vitalidad y la
-                                conexión su propia naturaleza, encender la linterna que nos muestre
-                                el camino
-                            </h1>
+                            <div>
+                                <h1 class="text-xl text-light bold-font">Es para ti si:</h1>
+                            </div>
                             <br />
-                            <p class="text-light text-md bold-font">
-                                Para dejar de vivir una vida como criaturas disfrazadas,
-                                <br />
-                                para aprender a confiar en nuestra intuición,
-                                <br />
-                                aprendiendo a mostrar los dientes cuando sea necesario,
-                                <br />
-                                y también, a renacernos las veces que necesitemos,
-                                <br />
-                                Para vivir una vida sensata, en la que caminemos de la mano
-                                <br />
-                                con la voz universal de la mujer salvaje,
-                                <br />
-                                que nos susurra como andar en el mundo manteniendonos
-                                <br />
-                                cerca de nuestro corazón,
-                            </p>
-                            <p class="text-md text-justify text-light light-font line-md">
-                                y hacerlo con otras mujeres, con las que podrás escuchar tradiciones
-                                orales que nos recuerdan la voz de la gran Madre, aquella que nos
-                                cobija y hoy está dispuesta a compartir su sabiduría.
-                            </p>
+                            <div>
+                                <p class="text-justify text-md text-light light-font">
+                                    <font-awesome-icon icon="circle-check" /> Te has visto en
+                                    situaciones donde aceptas cosas que no quieres, mostrando una
+                                    sonrisa cuando quieres decir no.
+                                </p>
+                            </div>
                             <br />
-                            <p class="text-light bold-font text-xl pacifico">
-                                Este es el momento de decirle que sí a la voz del alma
-                            </p>
+                            <div>
+                                <p class="text-justify text-md text-light light-font">
+                                    <font-awesome-icon icon="circle-check" /> Tienes una voz interna
+                                    que te debilita en vez de dar ánimos y protección.
+                                </p>
+                            </div>
+                            <br />
+                            <div>
+                                <p class="text-justify text-md text-light light-font">
+                                    <font-awesome-icon icon="circle-check" /> De alguna manera el
+                                    libro Mujeres que corren con los lobos ha aparecido en tu vida y
+                                    quieres aprender más sobre sus enseñanzas.
+                                </p>
+                            </div>
+                            <br />
+                            <div>
+                                <p class="text-justify text-md text-light light-font">
+                                    <font-awesome-icon icon="circle-check" /> Te interesa la
+                                    psicología, la espiritualidad y sientes un llamado a profundizar
+                                    en la naturaleza Salvaje femenina.
+                                </p>
+                            </div>
+                            <br />
+                            <div>
+                                <p class="text-justify text-md text-light light-font">
+                                    <font-awesome-icon icon="circle-check" /> Ansías reencontrarte
+                                    con una parte más genuina tuya que sabes está ahí.
+                                </p>
+                            </div>
+                            <br />
+                            <div>
+                                <p class="text-justify text-md text-light light-font">
+                                    <font-awesome-icon icon="circle-check" /> Buscas compartir y
+                                    aprender junto a otras mujeres y reconocer a otras que portan la
+                                    misma semilla que tú.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Parte final -->
         <div class="section d-flex align-items-center bg-light">
             <div class="container">
-                <div class="text-center">
-                    <img class="full-w-img img-fluid" src="../assets/images/trees.gif" alt="" />
-                </div>
-                <div class="m-5">
-                    <h1 class="times text-justify quote text-md light-font">
-                        «Si las mujeres la han perdido, cuando la vuelvan a encontrar, pugnarán por
-                        conservarla para siempre. Una vez que la hayan recuperado, lucharán con
-                        todas sus fuerzas para conservarla, pues con ella florece su vida creativa;
-                        sus relaciones adquieren significado, profundidad y salud; sus ciclos
-                        sexuales, creativos, laborales y lúdicos se restablecen; ya no son el blanco
-                        de las depredaciones de los demás, y tienen el mismo derecho a crecer y
-                        prosperar según las leyes de la naturaleza. Ahora su
-                        cansancio-del-final-de-la-jornada procede de un trabajo y un esfuerzo
-                        satisfactorios, no del hecho de haber estado encerradas en un esquema
-                        mental, una tarea o una relación excesivamente restringidos. Saben
-                        instintivamente cuándo tienen que morir las cosas y cuándo tienen que vivir;
-                        saben cómo alejarse y cómo quedarse.»
+                <div class="">
+                    <h1 class="text-dark text-lg light-font">
+                        Este libro recoge la tradición oral de diferentes lugares del mundo, para
+                        permitir a las mujeres el despertar de su vitalidad y la conexión su propia
+                        naturaleza, encender la linterna que nos muestre el camino
                     </h1>
-                    <p class="text-end text-dark bold-font quote times text-md">
-                        Clarissa Pinkola Estés
+                    <br />
+                    <p class="text-dark text-lg text-justify light-font">
+                        Para dejar de vivir una vida como criaturas disfrazadas, para aprender a
+                        confiar en nuestra intuición, aprendiendo a mostrar los dientes cuando sea
+                        necesario, y también, a renacernos las veces que necesitemos, Para vivir una
+                        vida sensata, en la que caminemos de la mano con la voz universal de la
+                        mujer salvaje, que nos susurra como andar en el mundo manteniendonos cerca
+                        de nuestro corazón,
                     </p>
-                    <div class="container text-center">
-                        <button
-                            type="button"
-                            style="width: 280px; height: 100px"
-                            class="bg-dark text-light shadow-0 border-0 text-sm"
-                        >
-                            Quiero participar
-                        </button>
-                    </div>
+                    <p class="text-dark text-lg text-justify light-font">
+                        y hacerlo con otras mujeres, con las que podrás escuchar tradiciones orales
+                        que nos recuerdan la voz de la gran Madre, aquella que nos cobija y hoy está
+                        dispuesta a compartir su sabiduría.
+                    </p>
+                    <br />
+                    <p class="vinque text-dark bold-font text-xl">
+                        Este es el momento de decirle que sí a la voz del alma
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="section d-flex justify-content-center align-items-center bg-dark"
+            id="section-1"
+        >
+            <div class="container-fluid" id="section-1-container">
+                <p class="quote text-lg times text-light">
+                    «Si las mujeres la han perdido, cuando la vuelvan a encontrar, pugnarán por
+                    conservarla para siempre. Una vez que la hayan recuperado, lucharán con todas
+                    sus fuerzas para conservarla, pues con ella florece su vida creativa; sus
+                    relaciones adquieren significado, profundidad y salud; sus ciclos sexuales,
+                    creativos, laborales y lúdicos se restablecen; ya no son el blanco de las
+                    depredaciones de los demás, y tienen el mismo derecho a crecer y prosperar según
+                    las leyes de la naturaleza. Ahora su cansancio-del-final-de-la-jornada procede
+                    de un trabajo y un esfuerzo satisfactorios, no del hecho de haber estado
+                    encerradas en un esquema mental, una tarea o una relación excesivamente
+                    restringidos. Saben instintivamente cuándo tienen que morir las cosas y cuándo
+                    tienen que vivir; saben cómo alejarse y cómo quedarse.»
+                </p>
+                <p class="text-end text-light bold-font times text-md quote">
+                    Clarissa Pinkola Estés
+                </p>
+                <div class="container text-center">
+                    <button
+                        @click="invokeKhipu"
+                        type="button"
+                        style="font-size: 28px; width: 320px; height: 100px; border-radius: 48px"
+                        class="bg-light text-dark shadow-0 border-0 text-sm"
+                    >
+                        Quiero ser parte
+                    </button>
                 </div>
             </div>
         </div>
@@ -292,6 +250,9 @@
 <script lang="ts">
 import Navbar from '../components/Navbar.vue'
 import FooterComponent from '../components/FooterComponent.vue'
+import { PaymentRequest } from '../store/Khipu/PaymentRequest'
+import { KhipuController } from '../store/Khipu/KhipuController'
+import { PaymentResponse } from '../store/Khipu/PaymentResponse'
 
 export default {
     name: 'ReadingClubView',
@@ -299,15 +260,37 @@ export default {
         Navbar,
         FooterComponent
     },
+    methods: {
+        invokeKhipu() {
+            const request: PaymentRequest = new PaymentRequest(
+                30000,
+                'CLP',
+                'Taller de lectura: Mujeres que corren con los lobos'
+            )
+            request.return_url = 'https://www.lametamorfosisdelalma.com/transaction-completed'
+            request.cancel_url = 'https://www.lametamorfosisdelalma.com/transaction-cencelled'
+            request.notify_url = 'https://lametamorfosis-backend-6105c00f8483.herokuapp.com/webhook'
+            request.picture_url =
+                'https://lametamorfosisdelalma.s3.sa-east-1.amazonaws.com/EBook+Cover.png'
+
+            try {
+                const paymentResponse: Promise<PaymentResponse> =
+                    KhipuController.createPayment(request)
+                paymentResponse.then((response) => {
+                    const paymentId = response.payment_id
+                    KhipuController.invoke(paymentId)
+                })
+            } catch (error) {
+                console.error('Error creating payment:', error)
+            }
+        }
+    }
 }
 </script>
 
 <style scoped>
 .full-w-img {
-    max-height: 100vh;
-}
-.offset-col {
-    margin-top: 25px; /* Adjust this value to control the vertical offset */
+    max-height: 95vh;
 }
 #section-1-container {
     min-height: 400px !important;
@@ -370,7 +353,7 @@ export default {
     font-size: 32px;
 }
 .text-md {
-    font-size: 28px;
+    font-size: 24px;
 }
 .text-sm {
     font-size: 18px;

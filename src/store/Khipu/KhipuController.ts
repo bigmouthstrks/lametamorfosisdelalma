@@ -36,7 +36,7 @@ export class KhipuController {
             method: HttpMethod.POST,
             headers: {
                 'Content-Type': 'application/json',
-                'x-api-key': '63498648-dab5-42d8-9f71-a2da7ac5e997'
+                'x-api-key': '36899be1-4931-4e4d-9a7a-f6952b94af92'
             },
             body: JSON.stringify({
                 amount: params.amount,
@@ -45,8 +45,7 @@ export class KhipuController {
                 return_url: params.return_url,
                 cancel_url: params.cancel_url,
                 notify_url: params.notify_url,
-                picture_url:
-                    'https://lametamorfosisdelalma.s3.sa-east-1.amazonaws.com/la-revolucion-simbolica-cut.jpg',
+                picture_url: params.picture_url,
                 expires_date: isoExpireDate,
                 notify_api_version: '3.0'
             })
