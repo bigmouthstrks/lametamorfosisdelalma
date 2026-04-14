@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <link rel="icon" href="/favicon.ico" />
-        <link href="https://fonts.cdnfonts.com/css/vinque" rel="stylesheet" />
-        <link href="https://fonts.cdnfonts.com/css/impact" rel="stylesheet" />
 
+        <!-- Medieval & Manuscript Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap"
             rel="stylesheet"
         />
+        <link href="https://fonts.cdnfonts.com/css/vinque" rel="stylesheet" />
 
         <link rel="stylesheet" href="./src/assets/main.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,24 +26,32 @@
         <script type="module" src="/src/main.ts"></script>
 
         <script lang="js">
+            const GOLD_COLORS = [
+                'rgba(212, 175, 90, 0.9)',
+                'rgba(196, 160, 60, 0.8)',
+                'rgba(232, 200, 110, 0.7)',
+                'rgba(180, 140, 70, 0.6)',
+                'rgba(255, 220, 130, 0.5)',
+            ]
             document.addEventListener('mousemove', function (e) {
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < 4; i++) {
                     const stardust = document.createElement('div')
                     stardust.className = 'stardust'
                     document.body.appendChild(stardust)
 
-                    const size = Math.random() * 4 + 1
+                    const size = Math.random() * 5 + 1
                     stardust.style.width = `${size}px`
                     stardust.style.height = `${size}px`
-                    stardust.style.backgroundColor = `rgba(255, 255, 255, ${Math.random()})`
+                    stardust.style.backgroundColor = GOLD_COLORS[Math.floor(Math.random() * GOLD_COLORS.length)]
+                    stardust.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px'
 
-                    const offsetX = Math.random() * 20 - 10
-                    const offsetY = Math.random() * 20 - 10
+                    const offsetX = Math.random() * 24 - 12
+                    const offsetY = Math.random() * 24 - 12
                     stardust.style.left = `${e.clientX + offsetX}px`
                     stardust.style.top = `${e.clientY + offsetY}px`
 
                     stardust.addEventListener('animationend', function () {
-                        stardust.parentElement.removeChild(stardust)
+                        stardust.parentElement?.removeChild(stardust)
                     })
                 }
             })

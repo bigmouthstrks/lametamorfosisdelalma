@@ -13,6 +13,6 @@ export default defineComponent({
 
 <style scoped>
 #app {
-    background-color: #699ac4 !important;
+    background-color: transparent;
 }
 </style>
